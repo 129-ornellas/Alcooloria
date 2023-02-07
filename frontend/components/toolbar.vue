@@ -1,7 +1,6 @@
 <template>
   <v-toolbar color="orange" dark fixed app clipped-right>
-    <v-toolbar-side-icon @click.stop="state.drawer = !state.drawer"></v-toolbar-side-icon>
-    <v-toolbar-title>Fala que eu não te escuto!</v-toolbar-title>
+    <v-toolbar-title class="black--text"></v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
     <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
