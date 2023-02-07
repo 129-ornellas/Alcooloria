@@ -1,9 +1,10 @@
 <template>
-  <v-toolbar color="blue-grey" dark fixed app clipped-right>
+  <v-toolbar color="orange" dark fixed app clipped-right>
     <v-toolbar-side-icon @click.stop="state.drawer = !state.drawer"></v-toolbar-side-icon>
-    <v-toolbar-title>Toolbar</v-toolbar-title>
+    <v-toolbar-title>Fala que eu não te escuto!</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn v-if="!logged_user" flat dark ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
+    <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
+    <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
     <v-menu v-if="logged_user" offset-y>
       <v-btn icon slot="activator" class="ma-0 ml-5">
         <v-avatar size="36px">
@@ -41,17 +42,20 @@
     </v-menu>
     <v-toolbar-side-icon @click.stop="state.drawerRight = !state.drawerRight"></v-toolbar-side-icon>
     <login-dialog ref="login_dialog"/>
+    <cadastro-user ref="cadastro_user"/>
   </v-toolbar>
 </template>
 
 <script>
   import Vuex from 'vuex'
   import loginDialog from '~/components/login-dialog.vue'
+  import cadastroUser from './cadastro-user.vue'
   import Snacks from '~/helpers/Snacks.js'
   import AppApi from '~apijs'
   export default {
     components: {
-      loginDialog
+      loginDialog,
+      cadastroUser
     },
     computed: Object.assign(
       {},
@@ -63,6 +67,10 @@
     methods: {
       open_login_dialog (evt) {
         this.$refs.login_dialog.open();
+        evt.stopPropagation();
+      },
+      open_cadastro_user (evt) {
+        this.$refs.cadastro_user.open();
         evt.stopPropagation();
       },
       logout(){

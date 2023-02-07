@@ -1,9 +1,9 @@
 <template>
   <v-dialog v-model="visible" max-width="500px">
     <v-card>
+      <v-card-text>
         <v-card-title>Log in</v-card-title>
-        <v-card-text>
-          <v-container fluid>
+        <v-container fluid>
             <v-text-field label="Username" required v-model="username"/>
             <v-text-field label="Password" type="password" required v-model="password" @keyup.enter="login()"/>
             <small style="color: red;" v-if="error">Wrong user or password</small>
@@ -11,6 +11,7 @@
         </v-card-text>
         <v-btn class="blue--text darken-1" flat @click="close()">Cancel</v-btn>
         <v-btn class="blue--text darken-1" flat @click="login()" :loading="loading" :disabled="loading">Login</v-btn>
+        <cadastro-user ref="cadastro_user"/>
     </v-card>
   </v-dialog>
 </template>

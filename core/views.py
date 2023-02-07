@@ -1,11 +1,15 @@
 # coding: utf-8
 import json
-from django.http.response import HttpResponse, JsonResponse
+from django.http.response import HttpResponse,HttpResponseRedirect, JsonResponse
 from django.contrib import auth
+from django.contrib.auth.models import User
 from commons.django_model_utils import get_or_none
 from commons.django_views_utils import ajax_login_required
 from core.service import log_svc, todo_svc
+from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+
+
 
 
 def dapau(request):
@@ -25,6 +29,14 @@ def login(request):
             user_dict = _user2dict(user)
     return JsonResponse(user_dict, safe=False)
 
+@require_POST
+def cadastro(request):
+    username=request.POST['username']
+    email=request.POST['email']
+    senha=request.POST['senha']
+    novo_usuario = User.objects.create_user(username=username, email=email, password=senha)
+    novo_usuario.save()
+    return HttpResponseRedirect('/')
 
 def logout(request):
     if request.method.lower() != 'post':

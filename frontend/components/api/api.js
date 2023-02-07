@@ -7,6 +7,9 @@ const api = {
     login(username, password){
         return post('/api/login', {username: username, password: password});
     },
+    cadastro(username,email,senha){
+        return post('/api/cadastro', {username: username, email: email, senha: senha})
+    },
     logout(){
         return post('/api/logout');
     },
