@@ -1,17 +1,17 @@
 <template>
   <v-app  id="inspire">
     <toolbar :state="layout"/>
-      <pagInicial class="centralizar d-flex justify-center align-self-center"/>
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
 <script>
   import toolbar from '~/components/toolbar.vue'
-  import pagInicial from '../components/pag-inicial.vue';
   export default {
     components: {
       toolbar,
-      pagInicial
     },
     data: () => ({
       layout: {

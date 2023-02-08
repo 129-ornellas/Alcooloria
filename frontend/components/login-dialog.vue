@@ -47,11 +47,13 @@ export default {
         if(user){
           this.$store.commit('SET_LOGGED_USER', user);
           this.visible = false;
+          this.$router.push('/calcule')
           console.log('logged')
         } else {
           this.error = true;
         }
         this.loading = false;
+        
       });
     },
   },
