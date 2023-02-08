@@ -1,28 +1,17 @@
 <template>
-  <v-app class="grey" id="inspire">
+  <v-app  id="inspire">
     <toolbar :state="layout"/>
-    <v-content>
-      <v-container fluid>
-        <nuxt></nuxt>
-      </v-container>
-    </v-content>
-    <v-snackbar
-      :timeout="snack.timeout"
-      :color="snack.color"
-      bottom
-      v-model="snack.visible"
-    >
-      {{snack.text}}
-      <v-btn dark flat @click.native="snack.visible = false">Close</v-btn>
-    </v-snackbar>
+      <pagInicial class="centralizar d-flex justify-center align-self-center"/>
   </v-app>
 </template>
 
 <script>
   import toolbar from '~/components/toolbar.vue'
+  import pagInicial from '../components/pag-inicial.vue';
   export default {
     components: {
       toolbar,
+      pagInicial
     },
     data: () => ({
       layout: {
@@ -36,3 +25,9 @@
     }
   }
 </script>
+<style>
+.centralizar{
+  margin-top: 12%;
+  width: 60%;
+}
+</style>

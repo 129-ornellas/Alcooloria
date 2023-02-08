@@ -11,7 +11,6 @@
         </v-card-text>
         <v-btn class="blue--text darken-1" flat @click="close()">Cancel</v-btn>
         <v-btn class="blue--text darken-1" flat @click="login()" :loading="loading" :disabled="loading">Login</v-btn>
-        <cadastro-user ref="cadastro_user"/>
     </v-card>
   </v-dialog>
 </template>
