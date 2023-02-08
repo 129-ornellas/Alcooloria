@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="alinha">
         <div class="desceimagem">
             <img src="https://diageo.vtexassets.com/arquivos/new-home-newsletter-banner-desk.png" alt="">
         </div>
@@ -7,14 +7,16 @@
           :loading="loading"
           class="mx-auto my-12"
           max-width="374"
+          min-height="300"
         >
         <v-card-title>
             <h2>Passou da conta?</h2>
-            <h1>a gente te ajuda! ;)</h1>
+            <h1>o Alcooloria te ajuda! ;)</h1>
         </v-card-title>
-        <v-divider class="mx-4"></v-divider>
-        <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
-        <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
+        <div class="mt-4 ">
+            <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
+            <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
+        </div>
         </v-card>
         <login-dialog ref="login_dialog"/>
         <cadastro-user ref="cadastro_user"/>
@@ -78,5 +80,9 @@
     } */
     .desceimagem{
         margin-top: 3%;
+    }
+    .alinha{
+        justify-content: center;
+        align-items: center;
     }
 </style>
