@@ -9,6 +9,5 @@
     components:{
     PopupMetricas
     }
-
   }
 </script>
