@@ -40,21 +40,15 @@
       </v-card>
     </v-menu>
     <v-toolbar-side-icon @click.stop="state.drawerRight = !state.drawerRight"></v-toolbar-side-icon>
-    <login-dialog ref="login_dialog"/>
-    <cadastro-user ref="cadastro_user"/>
   </v-toolbar>
 </template>
 
 <script>
   import Vuex from 'vuex'
-  import loginDialog from '~/components/login-dialog.vue'
-  import cadastroUser from './cadastro-user.vue'
   import Snacks from '~/helpers/Snacks.js'
   import AppApi from '~apijs'
   export default {
     components: {
-      loginDialog,
-      cadastroUser
     },
     computed: Object.assign(
       {},

@@ -18,21 +18,20 @@
           <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
       </div>
       </v-card>
-      <login-dialog ref="login_dialog"/>
-      <cadastro-user ref="cadastro_user"/>
+      <popup-login ref="popup_login"/>
+      <popup-cadastro ref="popup_cadastro"/>
   </div>
 </template>
 
 <script>
-
 import toolbar from '~/components/toolbar.vue'
-import loginDialog from '~/components/login-dialog.vue'
-import cadastroUser from '../components/cadastro-user.vue'
+import PopupCadastro from '../components/PopupCadastro.vue';
+import PopupLogin from '../components/PopupLogin.vue';
 export default {
   components: {
     toolbar,
-    loginDialog,
-    cadastroUser
+    PopupLogin,
+    PopupCadastro
   },
   data: () => ({
     layout: {
@@ -47,11 +46,11 @@ export default {
   props: ['state'],
   methods: {
     open_login_dialog (evt) {
-      this.$refs.login_dialog.open();
+      this.$refs.popup_login.open();
       evt.stopPropagation();
     },
     open_cadastro_user (evt) {
-      this.$refs.cadastro_user.open();
+      this.$refs.popup_cadastro.open();
       evt.stopPropagation();
     },
     logout(){

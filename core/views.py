@@ -8,7 +8,7 @@ from commons.django_views_utils import ajax_login_required
 from core.service import log_svc, todo_svc
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-
+from core.models import Metricas
 
 
 
@@ -38,6 +38,21 @@ def cadastro(request):
     novo_usuario.save()
     return HttpResponseRedirect('/')
 
+
+def metricas(request):
+
+    user=request.POST['usuario']
+    user=User.objects.get(id=user)
+
+    height=request.POST['height']
+    weight=request.POST['weight']
+    gender=request.POST['gender']
+    exercise=request.POST['exercise']
+    metricas_user = Metricas.objects.create(user=user,height=height,weight=weight,gender=gender,exercise=exercise)
+    metricas_user.save()
+    return HttpResponseRedirect('/')
+
+    
 def logout(request):
     if request.method.lower() != 'post':
         raise Exception('Logout only via post')

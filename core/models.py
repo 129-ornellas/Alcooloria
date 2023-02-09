@@ -29,3 +29,19 @@ class Todo(models.Model):
             'description': self.description,
             'done': self.done,
         }
+
+
+class Metricas(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    height = models.IntegerField()
+    weight = models.IntegerField()
+    gender = models.CharField(max_length=25)
+    exercise = models.CharField(max_length=25)
+    def to_dict_json(self):
+        return {
+            'id': self.id,
+            'height': self.height,
+            'weight': self.weight,
+            'gender': self.gender,
+            'exercise': self.exercise,
+        }
