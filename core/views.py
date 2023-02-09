@@ -50,7 +50,7 @@ def metricas(request):
     exercise=request.POST['exercise']
     metricas_user = Metricas.objects.create(user=user,height=height,weight=weight,gender=gender,exercise=exercise)
     metricas_user.save()
-    return HttpResponseRedirect('/')
+    return JsonResponse({})
 
     
 def logout(request):

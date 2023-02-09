@@ -23,7 +23,6 @@ const api = {
         return get('/api/list_todos');
     },
     metricas(id,height,weight,gender,exercise){
-        console.log('chegouna API', id)
         return post('/api/metricas', {usuario: id ,height: height, weight: weight, gender: gender, exercise: exercise})
     }
 }

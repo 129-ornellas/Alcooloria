@@ -32,7 +32,7 @@ class Todo(models.Model):
 
 
 class Metricas(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, unique=True,  on_delete=models.CASCADE)
     height = models.IntegerField()
     weight = models.IntegerField()
     gender = models.CharField(max_length=25)
