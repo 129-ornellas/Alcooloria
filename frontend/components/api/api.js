@@ -5,7 +5,9 @@ axios.defaults.xsrfCookieName = "csrftoken";
 
 const api = {
     login(username, password){
-        return post('/api/login', {username: username, password: password});
+        const a = post('/api/login', {username: username, password: password});  
+        console.log('result',a)
+        return a
     },
     cadastro(username,email,senha){
         return post('/api/cadastro', {username: username, email: email, senha: senha})

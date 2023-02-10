@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 import toolbar from '~/components/toolbar.vue'
 import PopupCadastro from '../components/PopupCadastro.vue';
 import PopupLogin from '../components/PopupLogin.vue';
@@ -63,13 +64,6 @@ export default {
 }
 </script>
 <style>
-  /* .centraliza{
-      padding-top: 10%;
-      width: 100%;
-      height: 50%;
-      text-align: center;
-
-  } */
   .desceimagem{
       margin-top: 3%;
   }

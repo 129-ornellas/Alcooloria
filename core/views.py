@@ -23,7 +23,9 @@ def login(request):
     user = auth.authenticate(username=username, password=password)
     user_dict = None
     if user is not None:
+        print('entrou')
         if user.is_active:
+            print('entrou dois')
             auth.login(request, user)
             log_svc.log_login(request.user)
             user_dict = _user2dict(user)
@@ -36,7 +38,7 @@ def cadastro(request):
     senha=request.POST['senha']
     novo_usuario = User.objects.create_user(username=username, email=email, password=senha)
     novo_usuario.save()
-    return HttpResponseRedirect('/')
+    return JsonResponse({})
 
 
 def metricas(request):

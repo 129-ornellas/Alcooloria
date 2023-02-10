@@ -44,10 +44,10 @@ export default {
       this.error = false;
       AppApi.login(this.username, this.password).then((result)=>{
         var user = result.data;
+        console.log(result)
         if(user){
           this.$store.commit('SET_LOGGED_USER', user);
           this.visible = false;
-          this.$router.push('/calcule')
           console.log('logged')
         } else {
           this.error = true;

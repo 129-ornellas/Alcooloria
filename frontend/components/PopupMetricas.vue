@@ -1,9 +1,7 @@
 <template>
-    <v-container class="ajusta">
-        <h1>{{ usuario.username }}, insira suas informações!</h1>
-        <v-btn @click="chamaConsole">testestestes</v-btn>
+    <v-container v-model="visible" class="ajusta">
         <v-form class="conserta">
-            <v-row>
+            <v-row >
                 <v-col cols="3" offset="3">
                 <v-text-field
                     label="Altura (em metros)"
@@ -42,7 +40,7 @@
                 />
                 </v-col>
             </v-row>
-            <v-btn class="blue--text darken-1" flat @click="enviaMetricas()" :loading="loading" :disabled="loading">Criar Cadastro</v-btn>
+            <v-btn class="blue--text darken-1" flat @click="enviaMetricas()" :loading="loading" :disabled="loading">Enviar Métricas</v-btn>
         </v-form>
     </v-container>
   </template>
@@ -53,6 +51,7 @@
   export default {
     data() {
       return {
+        visible: false,
         loading: false,
         height: 0,
         weight: 0,
@@ -65,15 +64,18 @@
         usuario:"logged_user"
       })
     },
+    props: ['state'],
     methods: {
+    open(){
+      this.visible = true;
+      console.log('Open');
+    },
       enviaMetricas(){
         this.loading = true;
-        const api = AppApi.metricas(this.usuario.id,this.height,this.weight,this.gender,this.exercise)
+        console.log('this.usuario',this.usuario)
+        AppApi.metricas(this.usuario.id,this.height,this.weight,this.gender,this.exercise)
         this.loading = false;
       },
-      chamaConsole(){
-        console.log(this.enviaMetricas(this.usuario.id,this.height,this.weight,this.gender,this.exercise))
-      }
 
     }
   }
@@ -81,18 +83,17 @@
 <style>
 .conserta{
   width: 20%;
-  height: 50%;
   display: flex;
-  margin-top: 5%;
   flex-direction: column;
 
 }
 .ajusta{
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 10%;
+  background-color: white
 
 
 }
