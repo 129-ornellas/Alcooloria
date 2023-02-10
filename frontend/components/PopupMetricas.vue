@@ -79,7 +79,7 @@
         console.log('this.usuario',this.usuario)
         AppApi.metricas(this.usuario.id,this.height,this.weight,this.gender,this.exercise)
         this.loading = false;
-        this.$router.push.calcule
+        this.$router.push({ path: '/calcule' })
       },
 
     }

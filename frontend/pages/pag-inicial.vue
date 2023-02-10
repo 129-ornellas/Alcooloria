@@ -1,26 +1,27 @@
 <template>
-  <div class="alinha">
-      <div class="desceimagem">
-          <img src="https://diageo.vtexassets.com/arquivos/new-home-newsletter-banner-desk.png" alt="">
-      </div>
-      <v-card
-        :loading="loading"
-        class="mx-auto my-12"
-        max-width="374"
-        min-height="300"
-      >
-      <v-card-title>
-          <h2>Passou da conta?</h2>
-          <h1>o Alcooloria te ajuda! ;)</h1>
-      </v-card-title>
-      <div class="mt-4 ">
-          <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
-          <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
-      </div>
-      </v-card>
-      <popup-login ref="popup_login"/>
-      <popup-cadastro ref="popup_cadastro"/>
+  <div>
+    <div class="alinha">
+        <img class="imagem" src="https://diageo.vtexassets.com/arquivos/new-home-newsletter-banner-desk.png" alt="">
+        <v-card
+          :loading="loading"
+          
+          max-width="374"
+          min-height="300"
+        >
+        <v-card-title>
+            <h2>Passou da conta?</h2>
+            <h1>o Alcooloria te ajuda! ;)</h1>
+        </v-card-title>
+        <div class="mt-4 ">
+            <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_login_dialog($event)">Login</v-btn>
+            <v-btn v-if="!logged_user" light ripple class="ma-0 ml-5"  @click="open_cadastro_user($event)">Cadastre-se!</v-btn>
+        </div>
+        </v-card>
+        <popup-login ref="popup_login"/>
+        <popup-cadastro ref="popup_cadastro"/>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -64,11 +65,16 @@ export default {
 }
 </script>
 <style>
-  .desceimagem{
-      margin-top: 3%;
-  }
   .alinha{
-      justify-content: center;
-      align-items: center;
+    margin: 15%;
+    width: 60%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .imagem{
+    max-width: 120%;
+    max-height: 120%;
   }
 </style>

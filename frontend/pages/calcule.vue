@@ -2,7 +2,7 @@
   <div class="asd">
     <v-form >
       <img class="imagem" src="https://images.pexels.com/photos/1089930/pexels-photo-1089930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-      <v-text-field type="number" v-model="qntd_cervejas" label="Insira o número de cervejas"/>
+      <v-text-field type="number" v-model="qntd_cervejas" label="Insira o número de cervejas consumidas"/>
     </v-form>
     <v-btn @click="calculaCerveja">enviar</v-btn>
     voce precisar correr {{ minutosCorridos }} minutos
@@ -39,6 +39,6 @@ import api from '../components/api/api';
 
 }
 .imagem{
-  max-width: 200px;
+  max-width: 300px;
 }
 </style>

@@ -49,7 +49,6 @@ def calculo(request):
     return JsonResponse(round(qntd_horas_corrida), safe=False)
     
 def metricas(request):
-
     user=request.POST['usuario']
     user=User.objects.get(id=user)
 
