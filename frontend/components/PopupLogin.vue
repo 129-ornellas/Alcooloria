@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+import calcule from '../pages/calcule.vue';
 import AppApi from '~apijs'
 
 export default {
@@ -29,6 +29,9 @@ export default {
       password: '',
       error: false,
     };
+  },
+  components:{
+    calcule
   },
   methods: {
     open(){
@@ -53,6 +56,7 @@ export default {
           this.error = true;
         }
         this.loading = false;
+        this.$router.push({name: 'calcule'})
         
       });
     },

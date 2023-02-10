@@ -50,7 +50,7 @@ export default {
     open(){
       this.visible = true;
       console.log('Open');
-    },
+    }, 
     close(){
       this.visible = false;
       console.log('Close');
@@ -73,7 +73,6 @@ export default {
           this.loading = false;
         });
       })
-      console.log(this.username,'passou')
       this.loading = false;
       this.visible_metrica= true
     },

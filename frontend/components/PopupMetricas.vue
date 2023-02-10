@@ -46,6 +46,7 @@
   </template>
   
   <script>
+  import calcule from '../pages/calcule.vue';
   import AppApi from '~apijs'
   import { mapGetters } from 'vuex';
   export default {
@@ -64,6 +65,9 @@
         usuario:"logged_user"
       })
     },
+    components:{
+        calcule
+    },
     props: ['state'],
     methods: {
     open(){
@@ -75,6 +79,7 @@
         console.log('this.usuario',this.usuario)
         AppApi.metricas(this.usuario.id,this.height,this.weight,this.gender,this.exercise)
         this.loading = false;
+        this.$router.push.calcule
       },
 
     }

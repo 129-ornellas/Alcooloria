@@ -26,6 +26,9 @@ const api = {
     },
     metricas(id,height,weight,gender,exercise){
         return post('/api/metricas', {usuario: id ,height: height, weight: weight, gender: gender, exercise: exercise})
+    },
+    calculo(qntd_cerveja){
+        return get('/api/calculo', {qntd_cerveja:qntd_cerveja})
     }
 }
 export default api;

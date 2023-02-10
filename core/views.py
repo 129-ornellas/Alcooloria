@@ -40,7 +40,14 @@ def cadastro(request):
     novo_usuario.save()
     return JsonResponse({})
 
-
+def calculo(request):
+    metrica = Metricas.objects.get(user=request.user)
+    calorias = int(request.GET['qntd_cerveja']) * 150 
+    velocidade = 13 if metrica.gender == "Masculino" else 11
+    calculo = velocidade * metrica.weight * 0.0175
+    qntd_horas_corrida = calorias / calculo
+    return JsonResponse(round(qntd_horas_corrida), safe=False)
+    
 def metricas(request):
 
     user=request.POST['usuario']
