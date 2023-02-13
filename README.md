@@ -1,4 +1,16 @@
-![image](https://user-images.githubusercontent.com/103268305/217694780-27065c07-227a-4c10-9a4f-d9a5fc9e694d.png)
+# Alcooloria
+![image](https://user-images.githubusercontent.com/103268305/218563197-08de9985-4c9a-4e5a-98b6-d87f9c231cf0.png)
+
+### O que é o Alcooloria?
+É um projeto busertech fullstack (Docker, postgreSQL, Django, Vue e Nuxt), criado a partir desse [template](https://github.com/evolutio/djavue2) que calcula a quantidade de calorias consumidas ao ingerir bebida alcoólica e retorna o quanto você precisa pra exercício físico pra perder esse número de calorias. Você faz uma conta no app, insere suas métricas e um cálculo é feito de acordo com suas características.
+
+### Videozinho com a explicação aqui: 
+https://drive.google.com/file/d/1md6KyK8iAtkkCDbVJmcdrWuGKoi40dia/view?usp=share_link
+
+### Pequeno fluxograma que ilustra como o projeto funciona:
+![image](https://user-images.githubusercontent.com/103268305/218564835-8d9e689d-ebb7-414e-95b8-e2bd5ebadf0d.png)
+
+
 # 1. Dev-env, super-easy mode (docker all things)
 Requirements:
 - [Install docker](https://docs.docker.com/install/)
