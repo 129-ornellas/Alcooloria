@@ -8,7 +8,7 @@ from commons.django_views_utils import ajax_login_required
 from core.service import log_svc, todo_svc
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-from core.models import Metricas
+from core.models import Metricas, Cerveja
 
 
 
@@ -31,6 +31,16 @@ def login(request):
             user_dict = _user2dict(user)
     return JsonResponse(user_dict, safe=False)
 
+
+def logout(request):
+    if request.method.lower() != 'post':
+        raise Exception('Logout only via post')
+    if request.user.is_authenticated():
+        log_svc.log_logout(request.user)
+    auth.logout(request)
+    return HttpResponse('{}', content_type='application/json')
+
+
 @require_POST
 def cadastro(request):
     username=request.POST['username']
@@ -39,6 +49,7 @@ def cadastro(request):
     novo_usuario = User.objects.create_user(username=username, email=email, password=senha)
     novo_usuario.save()
     return JsonResponse({})
+
 
 def calculo(request):
     metrica = Metricas.objects.get(user=request.user)
@@ -51,7 +62,6 @@ def calculo(request):
 def metricas(request):
     user=request.POST['usuario']
     user=User.objects.get(id=user)
-
     height=request.POST['height']
     weight=request.POST['weight']
     gender=request.POST['gender']
@@ -60,15 +70,13 @@ def metricas(request):
     metricas_user.save()
     return JsonResponse({})
 
-    
-def logout(request):
-    if request.method.lower() != 'post':
-        raise Exception('Logout only via post')
-    if request.user.is_authenticated():
-        log_svc.log_logout(request.user)
-    auth.logout(request)
-    return HttpResponse('{}', content_type='application/json')
 
+def cadastra_cerveja(request):
+    marca = request.POST['marca']
+    mls = request.POST['mls']
+    valor_calorico = request.POST['valor_calorico']
+    cerveja = Cerveja.objects.create(marca=marca,mls=mls,valor_calorico=valor_calorico)
+    cerveja.save()
 
 def whoami(request):
     i_am = {

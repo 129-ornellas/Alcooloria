@@ -5,27 +5,34 @@
       <v-text-field type="number" v-model="qntd_cervejas" label="Insira o número de cervejas consumidas"/>
     </v-form>
     <v-btn @click="calculaCerveja">enviar</v-btn>
+    <!-- <v-btn @click="cadastraCerveja">enviar</v-btn> -->
     voce precisar correr {{ minutosCorridos }} minutos
+    <!-- <PopupCadastraCerveja v-model="visible" ref="popup-cadastra-cerveja"/> -->
   </div>
-  </template>
+</template>
 <script>
-import api from '../components/api/api';
-
+  import AppApi from '~apijs'
+  import PopupCadastraCerveja from '../components/PopupCadastraCerveja.vue'; 
 
   export default{
     data(){
       return{
+        visible: false,
         qntd_cervejas: null,
         minutosCorridos: null,
+        
       }
+    },
+    components:{
+      PopupCadastraCerveja
     },
     methods:{
       calculaCerveja(){
-        api.calculo(this.qntd_cervejas).then((result)=>{
+        AppApi.calculo(this.qntd_cervejas).then((result)=>{
+          console.log('bateu na mock')
           this.minutosCorridos = result.data
-        }
-        )
-      }
+        })
+      },
     }
   }
 </script>
@@ -36,7 +43,6 @@ import api from '../components/api/api';
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 .imagem{
   max-width: 300px;

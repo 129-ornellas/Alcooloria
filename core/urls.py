@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^api/list_todos$', views.list_todos),
     url(r'^api/metricas$', views.metricas),
     url(r'^api/calculo$', views.calculo),
+    url(r'^api/cadastra_cerveja$', views.cadastra_cerveja),
 ]

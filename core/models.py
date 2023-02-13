@@ -45,3 +45,15 @@ class Metricas(models.Model):
             'gender': self.gender,
             'exercise': self.exercise,
         }
+
+class Cerveja(models.Model):
+    marca = models.CharField(max_length=25)
+    mls = models.IntegerField()
+    valor_calorico = models.IntegerField()
+    def to_dict_json(self):
+        return {
+            'id': self.id,
+            'marca': self.marca,
+            'mls': self.mls,
+            'valor_calorico': self.valor_calorico,
+        }
