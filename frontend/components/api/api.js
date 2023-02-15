@@ -31,7 +31,7 @@ const api = {
         return teste
     },
     cadastraCerveja(marca,mls,valorCalorico){
-        return post('/api/cadastra_cerveja',{marca:marca,mls:mls,valorCalorico:valorCalorico})
+        return post('/api/cadastra_cerveja',{marca:marca,mls:mls,valor_calorico:valorCalorico})
     }
 }
 export default api;

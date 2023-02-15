@@ -26,7 +26,6 @@ const api = {
         return mockasync(logged_user);
     },
     calculo(qntd_cervejas){
-        console.log('bati na mock')
         if (qntd_cervejas){
             return mockasync(10 * qntd_cervejas)
         }

@@ -77,6 +77,8 @@ def cadastra_cerveja(request):
     valor_calorico = request.POST['valor_calorico']
     cerveja = Cerveja.objects.create(marca=marca,mls=mls,valor_calorico=valor_calorico)
     cerveja.save()
+    return JsonResponse({})
+
 
 def whoami(request):
     i_am = {

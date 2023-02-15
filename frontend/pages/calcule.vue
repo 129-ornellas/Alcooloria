@@ -5,9 +5,9 @@
       <v-text-field type="number" v-model="qntd_cervejas" label="Insira o número de cervejas consumidas"/>
     </v-form>
     <v-btn @click="calculaCerveja">enviar</v-btn>
-    <!-- <v-btn @click="cadastraCerveja">enviar</v-btn> -->
-    voce precisar correr {{ minutosCorridos }} minutos
-    <!-- <PopupCadastraCerveja v-model="visible" ref="popup-cadastra-cerveja"/> -->
+    <v-btn @click="chamaCadastraCerveja($event)" > enviar </v-btn>
+    <PopupCadastraCerveja ref="popup_cerveja"/>
+    <p>voce precisar correr {{ minutosCorridos }} minutos</p>
   </div>
 </template>
 <script>
@@ -32,6 +32,11 @@
           console.log('bateu na mock')
           this.minutosCorridos = result.data
         })
+      },
+      chamaCadastraCerveja(evt){
+        this.$refs.popup_cerveja.open()
+        evt.stopPropagation();
+
       },
     }
   }

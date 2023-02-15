@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <div class="alinha">
-        <img class="imagem" src="https://diageo.vtexassets.com/arquivos/new-home-newsletter-banner-desk.png" alt="">
-        <v-card
+    <v-row class="d-flex">
+      <v-col cols="8">
+          <img class="imagem" src="../static/ALCOOLORIAS.png" alt="">
+      </v-col>        
+      <v-card
           :loading="loading"
           
           max-width="374"
@@ -19,9 +20,7 @@
         </v-card>
         <popup-login ref="popup_login"/>
         <popup-cadastro ref="popup_cadastro"/>
-    </div>
-  </div>
-  
+    </v-row>
 </template>
 
 <script>
@@ -74,7 +73,7 @@ export default {
     justify-content: center;
   }
   .imagem{
-    max-width: 120%;
-    max-height: 120%;
+    max-width: 45%;
+    max-height: 45%;
   }
 </style>
