@@ -1,5 +1,6 @@
 # Alcooloria
-![image](https://user-images.githubusercontent.com/103268305/218563197-08de9985-4c9a-4e5a-98b6-d87f9c231cf0.png)
+![image](https://user-images.githubusercontent.com/103268305/219088872-4dc38ee1-8952-411e-a1e1-c9ebc26bb10c.png)
+
 
 ### O que é o Alcooloria?
 É um projeto busertech fullstack (Docker, postgreSQL, Django, Vue e Nuxt), criado a partir desse [template](https://github.com/evolutio/djavue2) que calcula a quantidade de calorias consumidas ao ingerir bebida alcoólica e retorna o quanto você precisa pra exercício físico pra perder esse número de calorias. Você faz uma conta no app, insere suas métricas e um cálculo é feito de acordo com suas características.
