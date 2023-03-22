@@ -3,9 +3,10 @@ import json
 from django.http.response import HttpResponse,HttpResponseRedirect, JsonResponse
 from django.contrib import auth
 from django.contrib.auth.models import User
+from Alcooloria.core.service import cervejada_svc
 from commons.django_model_utils import get_or_none
 from commons.django_views_utils import ajax_login_required
-from core.service import log_svc, todo_svc
+from core.service import log_svc
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Metricas, Cerveja
@@ -56,8 +57,8 @@ def calculo(request):
     calorias = int(request.GET['qntd_cerveja']) * 150 
     velocidade = 13 if metrica.gender == "Masculino" else 11
     calculo = velocidade * metrica.weight * 0.0175
-    qntd_horas_corrida = calorias / calculo
-    return JsonResponse(round(qntd_horas_corrida), safe=False)
+    tempo_corrida = calorias / calculo
+    return JsonResponse(round(tempo_corrida), safe=False)
     
 def metricas(request):
     user=request.POST['usuario']
@@ -89,15 +90,23 @@ def whoami(request):
 
 
 @ajax_login_required
-def add_todo(request):
-    todo = todo_svc.add_todo(request.POST['new_task'])
-    return JsonResponse(todo)
+def add_cervejada(request):
+    cervejada = cervejada_svc.add_cervejada(request.POST['new_cervejada'])
+    return JsonResponse(cervejada)
+
+
+@csrf_exempt
+@ajax_login_required
+def delete_cervejada(request):
+    id = request.POST["id"]
+    cervejada_svc.delete_cervejada(id)
+    return JsonResponse({})
 
 
 @ajax_login_required
-def list_todos(request):
-    todos = todo_svc.list_todos()
-    return JsonResponse({'todos': todos})
+def list_cervejadas(request):
+    cervejadas = cervejada_svc.list_cervejadas()
+    return JsonResponse({'cervejadas': cervejadas})
 
 
 def _user2dict(user):

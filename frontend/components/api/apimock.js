@@ -40,14 +40,14 @@ const api = {
             user: logged_user,
         } : {authenticated: false});
     },
-    add_todo(newtask){
-        return mockasync({description: newtask, done: false});
+    add_cervejada(newCervejada, tempoCorrida){
+        return mockasync({qntd_cervejas: newCervejada, tempo_corrida: tempoCorrida ,done: false});
     },
-    list_todos(){
+    list_cervejadas(){
         return mockasync({
-            todos: [
-                {description: 'Do the laundry', done: true},
-                {description: 'Walk the dog', done: false}
+            cervejadas: [
+                {qntd_cervejas: 2, tempo_corrida: 19, done: true},
+                {qntd_cervejas: 4, tempo_corrida: 38, done: false}
             ]
         });
     }
