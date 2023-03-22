@@ -15,7 +15,7 @@
         <v-card v-for="item in items" :key="item.title" rounded>
           <v-card-title>Cervejas: {{ item.qntd_cervejas }}</v-card-title>
           <v-card-subtitle class="mb-6 fs">Necessário: {{ item.tempo_corrida }} minutos</v-card-subtitle>
-
+          <v-btn @click="deleteCervejada(item)">DELETE</v-btn>
         </v-card>
       </v-col>
     </v-row>
@@ -59,7 +59,10 @@
         this.$refs.popup_cerveja.open()
         evt.stopPropagation()
       },
-      
+      async deleteCervejada(rodada) {
+        await AppApi.deleteCervejada({id: rodada.id})
+        this.items = await AppApi.list_cervejadas()
+      }
     }
   }
 </script>

@@ -32,3 +32,14 @@ def test_list_cervejadas_return_cervejadas(client, db):
     resp = client.post("/api/list_cervejadas")
     assert resp.json() == {"cervejadas": [cervejada.to_dict_json()]}
     assert resp.status_code == HTTPStatus.OK
+
+
+def test_delete_cervejada(client, db, cervejada):
+    resp = client.post(
+        "/api/delete_cervejada",
+        {
+            "id": cervejada.id
+        },
+    )
+    assert Cervejada.objects.all().count() == 0
+    assert resp.status_code == HTTPStatus.OK
