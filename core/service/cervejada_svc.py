@@ -6,10 +6,6 @@ def add_cervejada(qntd_cervejas, minutos_corridos):
     return cervejada.to_dict_json()
 
 
-def delete_cervejada(id: int):
-    Cervejada.objects.get(id=id).delete()
-
-
 def list_cervejadas():
     cervejadas = Cervejada.objects.all()
     return [cervejada.to_dict_json() for cervejada in cervejadas]

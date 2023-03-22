@@ -95,14 +95,6 @@ def add_cervejada(request):
     return JsonResponse(cervejada)
 
 
-@csrf_exempt
-@ajax_login_required
-def delete_cervejada(request):
-    id = request.POST["id"]
-    cervejada_svc.delete_cervejada(id)
-    return JsonResponse({})
-
-
 @ajax_login_required
 def list_cervejadas(request):
     cervejadas = cervejada_svc.list_cervejadas()

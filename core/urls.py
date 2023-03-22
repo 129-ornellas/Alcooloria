@@ -8,7 +8,6 @@ urlpatterns = [
     url(r'^api/logout$', views.logout),
     url(r'^api/whoami$', views.whoami),
     url(r'^api/add_cervejada$', views.add_cervejada),
-    url(r'^api/delete_cervejada$', views.delete_cervejada),
     url(r'^api/list_cervejadas$', views.list_cervejadas),
     url(r'^api/metricas$', views.metricas),
     url(r'^api/calculo$', views.calculo),
