@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Cervejada',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.IntegerField()),
+                ('qntd_cerveja', models.IntegerField()),
                 ('tempo_corrida', models.IntegerField()),
                 ('done', models.BooleanField(default=False)),
             ],
