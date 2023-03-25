@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 class ActivityLog(models.Model):
     type = models.CharField(max_length=64)
-    logged_user = models.ForeignKey(User, null=True, blank=True)
-    fromuser = models.ForeignKey(User, null=True, blank=True, related_name="activitylogs_withfromuser")
+    logged_user = models.ForeignKey(User, null=True, blank=True, on_delete=models.PROTECT)
+    fromuser = models.ForeignKey(User, null=True, blank=True, related_name="activitylogs_withfromuser", on_delete=models.PROTECT)
     jsondata = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField('criado em', auto_now_add=True)
 
@@ -19,14 +19,15 @@ class ActivityLog(models.Model):
         )
 
 
-class Todo(models.Model):
-    description = models.CharField(max_length=512)
+class Cervejada(models.Model):
+    qntd_cervejas = models.IntegerField()
+    tempo_corrida = models.IntegerField()
     done = models.BooleanField(default=False)
-
     def to_dict_json(self):
         return {
             'id': self.id,
-            'description': self.description,
+            'qntd_cervejas': self.qntd_cervejas,
+            'tempo_corrida': self.tempo_corrida,
             'done': self.done,
         }
 

@@ -13,10 +13,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Todo',
+            name='Cervejada',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.CharField(max_length=512)),
+                ('qntd_cerveja', models.IntegerField()),
+                ('tempo_corrida', models.IntegerField()),
                 ('done', models.BooleanField(default=False)),
             ],
         ),

@@ -16,11 +16,11 @@ const api = {
     whoami(){
         return get('/api/whoami');
     },
-    add_todo(newtask){
-        return post('/api/add_todo', {new_task: newtask});
+    add_cervejada(new_cervejada, tempo_corrida){
+        return post('/api/add_cervejada', {qntd_cerveja: new_cervejada, tempo_corrida: tempo_corrida});
     },
-    list_todos(){
-        return get('/api/list_todos');
+    list_cervejadas(){
+        return get('/api/list_cervejadas');
     },
     metricas(id,height,weight,gender,exercise){
         return post('/api/metricas', {usuario: id ,height: height, weight: weight, gender: gender, exercise: exercise})
