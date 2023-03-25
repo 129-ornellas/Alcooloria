@@ -19,6 +19,9 @@ const api = {
     add_cervejada(new_cervejada, tempo_corrida){
         return post('/api/add_cervejada', {qntd_cerveja: new_cervejada, tempo_corrida: tempo_corrida});
     },
+    delete_cervejada(id){
+        return post('/api/delete_cervejada', {id: id})
+    },
     list_cervejadas(){
         return get('/api/list_cervejadas');
     },
